@@ -8,5 +8,6 @@ public interface LaptopService {
 
     List<Laptop> getAllLaptops();
     Laptop getLaptopById(Integer ID);
+    Laptop addNewLaptop(Laptop laptop);
 
 }

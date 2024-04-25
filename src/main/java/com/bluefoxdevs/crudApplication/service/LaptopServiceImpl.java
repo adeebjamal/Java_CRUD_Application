@@ -39,4 +39,16 @@ public class LaptopServiceImpl implements LaptopService {
         return laptop;
     }
 
+    @Override
+    public Laptop addNewLaptop(Laptop laptop) {
+        try {
+            this.laptopDAO.insertLaptop(laptop.getBrand(), laptop.getModel(), laptop.getProcessor(), laptop.getGPU(), laptop.getRAM(), laptop.getROM());
+        }
+        catch(Exception e) {
+            System.out.println("Service: LaptopServiceImpl, Function: addNewLaptop");
+            System.out.println(e.getMessage());
+        }
+        return laptop;
+    }
+
 }

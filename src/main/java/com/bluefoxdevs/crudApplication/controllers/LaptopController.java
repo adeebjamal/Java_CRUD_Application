@@ -5,10 +5,8 @@ import com.bluefoxdevs.crudApplication.service.LaptopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
 
 @RestController
@@ -42,6 +40,19 @@ public class LaptopController {
             System.out.println(e.getMessage());
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "")
+    public ResponseEntity<Laptop> addNewLaptop(@RequestBody Laptop reqBody) {
+        Laptop response = new Laptop();
+        try {
+            response = this.laptopService.addNewLaptop(reqBody);
+        }
+        catch(Exception e) {
+            System.out.println("Controller: laptops, endpoint: '/', Method: POST");
+            System.out.println(e.getMessage());
+        }
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
 }
