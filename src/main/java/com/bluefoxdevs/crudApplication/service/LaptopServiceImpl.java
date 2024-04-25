@@ -26,4 +26,17 @@ public class LaptopServiceImpl implements LaptopService {
         return laptops;
     }
 
+    @Override
+    public Laptop getLaptopById(Integer ID) {
+        Laptop laptop = new Laptop();
+        try {
+            laptop = this.laptopDAO.findLaptopById(ID);
+        }
+        catch(Exception e) {
+            System.out.println("Service: LaptopServiceImpl, Function: getLaptopById");
+            System.out.println(e.getMessage());
+        }
+        return laptop;
+    }
+
 }

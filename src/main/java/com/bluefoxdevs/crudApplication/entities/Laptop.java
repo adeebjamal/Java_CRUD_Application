@@ -9,16 +9,22 @@ public class Laptop {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     int id;
+
     @Column(name = "BRAND")
     String brand;
+
     @Column(name = "MODEL")
     String model;
+
     @Column(name = "PROCESSOR")
     String processor;
+
     @Column(name = "GPU")
     String GPU;
+
     @Column(name = "RAM")
     int RAM;
+
     @Column(name = "ROM")
     int ROM;
 

@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LaptopDAO extends JpaRepository<Laptop, Integer> {
 
+    Laptop findLaptopById(Integer ID);
 }

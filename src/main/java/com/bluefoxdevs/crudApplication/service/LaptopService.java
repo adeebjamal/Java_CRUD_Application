@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 public interface LaptopService {
 
     List<Laptop> getAllLaptops();
+    Laptop getLaptopById(Integer ID);
 
 }
