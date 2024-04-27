@@ -1,0 +1,32 @@
+1. Get all laptops
+Method: GET, URL: http://localhost:8080/laptops
+
+2. Get laptop by ID
+Method: GET, URL: http://localhost:8080/laptops/{ID}
+
+3. Add new laptop
+Method: POST, URL: http://localhost:8080/laptops
+Request payload:
+{
+    "brand": "Asus",
+    "model": "Tuf Gaming F15",
+    "processor": "i7 11800H",
+    "gpu": "Nvidia RTX 3050",
+    "ram": 16,
+    "rom": 1024
+}
+
+4. Delete laptop by ID
+Method: DELETE, URL: http://localhost:8080/laptops/{ID}
+
+5. Update laptop by ID
+Method: PUT, URL: http://localhost:8080/laptops/{ID}
+Request payload:
+{
+    "brand": "Lenovo",
+    "model": "IdeaPad 1",
+    "processor": "AMD Ryzen 5 5500U",
+    "gpu": "NONE",
+    "ram": 8,
+    "rom": 512
+}

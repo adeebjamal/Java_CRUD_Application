@@ -51,4 +51,46 @@ public class LaptopServiceImpl implements LaptopService {
         return laptop;
     }
 
+    @Override
+    public Laptop deleteLaptopById(Integer ID) {
+        Laptop deletedLaptop = new Laptop();
+        try {
+            deletedLaptop = this.laptopDAO.findLaptopById(ID);
+            if(deletedLaptop == null) {
+                return null;
+            }
+            this.laptopDAO.deleteById(ID);
+        }
+        catch(Exception e) {
+            System.out.println("Service: LaptopServiceImpl, Function: deleteLaptopById");
+            System.out.println(e.getMessage());
+        }
+        return deletedLaptop;
+    }
+
+    @Override
+    public Laptop updateLaptopById(Integer ID, Laptop reqBody) {
+        Laptop updatedLaptop = new Laptop();
+        try {
+            updatedLaptop = this.laptopDAO.findLaptopById(ID);
+            if(updatedLaptop == null) {
+                return null;
+            }
+            String brand = reqBody.getBrand(), model = reqBody.getModel(), processor = reqBody.getProcessor(), GPU = reqBody.getGPU();
+            int RAM = reqBody.getRAM(), ROM = reqBody.getROM();
+            updatedLaptop.setBrand(brand);
+            updatedLaptop.setModel(model);
+            updatedLaptop.setProcessor(processor);
+            updatedLaptop.setGPU(GPU);
+            updatedLaptop.setRAM(RAM);
+            updatedLaptop.setROM(ROM);
+            this.laptopDAO.insertLaptop(brand, model, processor, GPU, RAM, ROM);
+        }
+        catch(Exception e) {
+            System.out.println("Service: LaptopServiceImpl, Function: updateLaptopById");
+            System.out.println(e.getMessage());
+        }
+        return updatedLaptop;
+    }
+
 }

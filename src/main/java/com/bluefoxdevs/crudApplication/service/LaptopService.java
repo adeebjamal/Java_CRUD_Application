@@ -9,5 +9,7 @@ public interface LaptopService {
     List<Laptop> getAllLaptops();
     Laptop getLaptopById(Integer ID);
     Laptop addNewLaptop(Laptop laptop);
+    Laptop deleteLaptopById(Integer ID);
+    Laptop updateLaptopById(Integer ID, Laptop reqBody);
 
 }

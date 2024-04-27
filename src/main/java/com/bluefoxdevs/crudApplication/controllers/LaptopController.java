@@ -55,4 +55,30 @@ public class LaptopController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<Laptop> deleteLaptop(@PathVariable("id") String ID) {
+        Laptop response = new Laptop();
+        try {
+            response = this.laptopService.deleteLaptopById(Integer.valueOf(ID));
+        }
+        catch(Exception e) {
+            System.out.println("Controller: laptops, endpoint: '{id}', Method: DELETE");
+            System.out.println(e.getMessage());
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping(path = "{id}")
+    public ResponseEntity<Laptop> updateLaptopById(@PathVariable("id") String ID, @RequestBody Laptop reqBody) {
+        Laptop response = new Laptop();
+        try {
+            response = this.laptopService.updateLaptopById(Integer.valueOf(ID), reqBody);
+        }
+        catch(Exception e) {
+            System.out.println("Controller: laptops, endpoint: '{id}', Method: PUT");
+            System.out.println(e.getMessage());
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }
